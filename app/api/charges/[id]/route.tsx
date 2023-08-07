@@ -1,6 +1,9 @@
 import { getZBD } from '@/services/zbd';
 import { NextResponse } from 'next/server';
 
+
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: Request, data: any) {
   // Get zbd client
   const { zbd } = getZBD(NextResponse);
@@ -9,7 +12,6 @@ export async function GET(request: Request, data: any) {
   try {
     // Get Charge
     let result = await zbd.getCharge(id);
-    console.log(result)
 
     // Returning JSON payload
     const response = NextResponse.json(result);

@@ -15,11 +15,11 @@ export default async function Buy() {
   const { success, data } = response;
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-96">
+    <div className="flex min-h-screen flex-col items-center p-96">
       <p>Pay Charge</p>
       <QR value={data.invoice.uri} />
       <PollingComponent id={data.id} />
       <a href={data.invoice.uri}>Open in Wallet</a>
-    </main>
+    </div>
   )
 }
