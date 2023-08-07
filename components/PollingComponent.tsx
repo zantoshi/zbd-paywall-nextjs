@@ -13,7 +13,7 @@ const PollingComponent = ({ id }: PollingComponentProps) => {
   useEffect(() => {
     const fetchChargeStatus = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/charges/${id}`, {cache: 'no-store'});
+        const res = await fetch(`https://a122-2600-8800-8385-fb00-a1df-bdb1-938c-edbe.ngrok-free.app/api/charges/${id}`, {cache: 'no-store'});
         const response = await res.json();
         setStatus(response.data.status);
       } catch (error) {

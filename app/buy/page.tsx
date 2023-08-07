@@ -2,13 +2,14 @@ import PollingComponent from '@/components/PollingComponent';
 import { QR } from '@/components/QR';
 
 export default async function Buy() {
-  const res = await fetch('http://localhost:3000/api/charges', {
+  const res = await fetch('https://a122-2600-8800-8385-fb00-a1df-bdb1-938c-edbe.ngrok-free.app/api/charges', {
     cache: 'no-store',
     method: 'POST',
     body: JSON.stringify({
       amount: `1000`,
       description: 'Pay me now!',
       expiresIn: 300,
+      callbackUrl: "https://a122-2600-8800-8385-fb00-a1df-bdb1-938c-edbe.ngrok-free.app/callback"
     }),
   });
   const response = await res.json();
