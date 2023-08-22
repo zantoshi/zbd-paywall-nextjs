@@ -13,7 +13,7 @@ const PollingComponent = ({ id }: PollingComponentProps) => {
   useEffect(() => {
     const fetchChargeStatus = async () => {
       try {
-        const res = await fetch(`${process.env.HOST_DOMAIN}/api/charges/${id}`, {cache: 'no-store'});
+        const res = await fetch(`http://localhost:3000/api/charges/${id}`, {method : 'GET', cache: 'no-store'});
         const response = await res.json();
         setStatus(response.data.status);
       } catch (error) {
