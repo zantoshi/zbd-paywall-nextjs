@@ -25,7 +25,6 @@ export async function POST(request: Request) {
 
     // Creating Charge / Payment Request
     const result = await zbd.createCharge(payload);
-
     // Returning JSON payload
     return NextResponse.json(result)
 

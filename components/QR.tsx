@@ -8,10 +8,10 @@ interface QRProps {
 export const QR: React.FC<QRProps> = ({value}) => {
   return (
         <div style={{
-        maxWidth: 130,
+        maxWidth: 300,
         width: '100%',
         height: 'auto',
-        margin: '0 auto 20px auto',
+        margin: '20px auto 20px auto',
         }}>
         <QRCode
             size={256}
