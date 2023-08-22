@@ -17,7 +17,7 @@ export default function From() {
     const router = useRouter()
     
     const schema: ZodType<FormData> = z.object({
-        amount : z.number(),
+        amount : z.number().min(2000),
         // Selected the email validation since ln addresses look pretty much the same
         refundAddress : z.string().email(),
         firstAddress : z.string().email(),
@@ -36,7 +36,7 @@ export default function From() {
             <h2 className="text-xl font-semibold">Amount:</h2>
             <label className="font-extralight">How much do you want to be sent in total? The amount will be splitted evenly between the two addresses.</label>
             {errors.amount && <span className='text-red-500 px-2'>{errors.amount.message}</span>}
-            <input type="number" className="transition eas-in duration-100 w-full bg-secondblue p-4 my-2" placeholder='amount in sats' required {...register("amount", {valueAsNumber : true})}/>
+            <input type="number" className="transition eas-in duration-100 w-full bg-secondblue p-4 my-2" placeholder='amount in milisats' required {...register("amount", {valueAsNumber : true})}/>
         </div>
         <div className="my-10">
             <h2 className="text-xl font-semibold">Refund Lightning Address:</h2>

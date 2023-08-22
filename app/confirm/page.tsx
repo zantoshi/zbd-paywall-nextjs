@@ -14,7 +14,8 @@ export default function Confirm() {
     const router = useRouter()
 
     const confirm = () => {
-        router.push('/pay')
+        let href : string = `/pay?amount=${amount}&refundAddress=${refundAddress}&firstAddress=${firstAddress}&secondAddress=${secondAddress}`
+        router.push(href)
     }
 
     const cancel = () => {
