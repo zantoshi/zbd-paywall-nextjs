@@ -21,7 +21,7 @@ const PollingComponent = ({ id, data }: PollingComponentProps) => {
   useEffect(() => {
     const fetchChargeStatus = async () => {
       try {
-        const res = await fetch(`https://zbd-payment-app.vercel.app/api/charges/${id}`, {method : 'GET', cache: 'no-store'});
+        const res = await fetch(`http://localhost:3000/api/charges/${id}`, {method : 'GET', cache: 'no-store'});
         const response = await res.json();
         setStatus(response.data.status);
       } catch (error) {

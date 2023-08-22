@@ -15,7 +15,7 @@ type FormData = {
 export default function Buy() {
 
   const callback = 'https://zbd-payment-app.vercel.app/callback'
-  
+
   const params = useSearchParams()
   
   const [response, setResponse] = useState({success : '', data : {invoice : {uri : ''}, id : ''}})
@@ -33,7 +33,7 @@ export default function Buy() {
       secondAddress : secondAddress!!.toString()
     })
 
-    fetch(`https://zbd-payment-app.vercel.app/api/charges`, {
+    fetch(`http://localhost:3000/api/charges`, {
       cache: 'no-store',
       method: 'POST',
       body: JSON.stringify({
