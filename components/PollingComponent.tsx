@@ -6,6 +6,8 @@ interface PollingComponentProps {
   id: string;
 }
 
+const host = process.env.HOST_DOMAIN
+
 const PollingComponent = ({ id }: PollingComponentProps) => {
   const router = useRouter();
   const [status, setStatus] = useState<any>('');
@@ -13,7 +15,7 @@ const PollingComponent = ({ id }: PollingComponentProps) => {
   useEffect(() => {
     const fetchChargeStatus = async () => {
       try {
-        const res = await fetch(`https://a122-2600-8800-8385-fb00-a1df-bdb1-938c-edbe.ngrok-free.app/api/charges/${id}`, {cache: 'no-store'});
+        const res = await fetch(`${host}/api/charges/${id}`, {cache: 'no-store'});
         const response = await res.json();
         setStatus(response.data.status);
       } catch (error) {

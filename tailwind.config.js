@@ -50,6 +50,13 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Further added colors
+        green : '#005C53',
+        blue : {
+          DEFAULT : '#042940',
+          hover : '#004D45'
+        },
+        secondblue : '#014C57'
       },
       borderRadius: {
         lg: "var(--radius)",
