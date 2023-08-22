@@ -40,7 +40,7 @@ export default function From() {
         </div>
         <div className="my-10">
             <h2 className="text-xl font-semibold">Refund Lightning Address:</h2>
-            <label className="font-extralight">If payment Fails, we'll refund you at this address.</label>
+            <label className="font-extralight">If payment Fails, we&apos;ll refund you at this address.</label>
             {errors.refundAddress && <span className='text-red-500 px-2'>{errors.refundAddress.message}</span>}
             <input type="text" className="transition eas-in duration-100 w-full bg-secondblue p-4 my-2" placeholder="sample@zbd.gg" required {...register("refundAddress")}/>
         </div>

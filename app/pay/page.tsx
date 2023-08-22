@@ -4,14 +4,16 @@ import { QR } from '@/components/QR';
 const host = process.env.HOST_DOMAIN
 
 export default async function Buy() {
+  const callback = `${host}/callback`
+
   const res = await fetch(`${host}/api/charges`, {
     cache: 'no-store',
     method: 'POST',
     body: JSON.stringify({
-      amount: `1000`,
+      amount: '1000',
       description: 'Pay me now!',
       expiresIn: 300,
-      callbackUrl: `${host}/callback`
+      callbackUrl: String(callback)
     }),
   });
   const response = await res.json();
