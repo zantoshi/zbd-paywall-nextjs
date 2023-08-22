@@ -1,12 +1,10 @@
 import PollingComponent from '@/components/PollingComponent';
 import { QR } from '@/components/QR';
 
-const host = process.env.HOST_DOMAIN
-
 export default async function Buy() {
-  const callback = `${host}/callback`
+  const callback = `${process.env.HOST_DOMAIN}/callback`
 
-  const res = await fetch(`${host}/api/charges`, {
+  const res = await fetch(`${process.env.HOST_DOMAIN}/api/charges`, {
     cache: 'no-store',
     method: 'POST',
     body: JSON.stringify({

@@ -6,8 +6,6 @@ interface PollingComponentProps {
   id: string;
 }
 
-const host = process.env.HOST_DOMAIN
-
 const PollingComponent = ({ id }: PollingComponentProps) => {
   const router = useRouter();
   const [status, setStatus] = useState<any>('');
@@ -15,7 +13,7 @@ const PollingComponent = ({ id }: PollingComponentProps) => {
   useEffect(() => {
     const fetchChargeStatus = async () => {
       try {
-        const res = await fetch(`${host}/api/charges/${id}`, {cache: 'no-store'});
+        const res = await fetch(`${process.env.HOST_DOMAIN}/api/charges/${id}`, {cache: 'no-store'});
         const response = await res.json();
         setStatus(response.data.status);
       } catch (error) {
